@@ -20,6 +20,7 @@
     </style>
     <script>
         $(document).ready(function () {
+
             $('header').load('header.html', function () {
                 $('<link>', {
                     rel: 'stylesheet',
@@ -71,8 +72,9 @@
                     white_font(this);
                     $("#menu-content").toggle();
                 });
-            
+
             });
+            
             $('main').load('categori_menu.html', function () {
                 $('<link>', {
                     rel: 'stylesheet',
@@ -83,8 +85,9 @@
                 $.get('ex_body.html', function (data) {
                     $('main').append(data);
                 });
-                
+
             })
+
         });
     </script>
 </head>
@@ -93,7 +96,7 @@
     <div class="container-fluid" style="padding: 0;">
         <header style="height: 153px;"></header>
         <main style="height: 60vh;">
-            <button>모달버튼</button>
+            
         </main>
     </div>
 </body>
