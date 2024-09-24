@@ -17,6 +17,20 @@
         .button-active {
             background-color: #3D3D3D !important;
         }
+
+        /* 이메일 입력 필드에 포커스가 있을 때 테두리 색상 변경 */
+        #input_email:focus {
+            border-color: #3D3D3D !important;
+            outline: none;
+            box-shadow: none;
+        }
+
+        /* 비밀번호 입력 필드에 포커스가 있을 때 테두리 색상 변경 */
+        #input_pw:focus {
+            border-color: #3D3D3D !important;
+            outline: none;
+            box-shadow: none;
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -74,7 +88,7 @@
                 });
 
             });
-            
+
             $('main').load('categori_menu.html', function () {
                 $('<link>', {
                     rel: 'stylesheet',
@@ -82,9 +96,9 @@
                     href: 'css/categori_menu.css'
                 }).appendTo('main');
 
-                $.get('ex_body.html', function (data) {
-                    $('main').append(data);
-                });
+                // $.get('ex_body.html', function (data) {
+                //     $('main').append(data);
+                // });
 
             })
 
@@ -96,7 +110,7 @@
     <div class="container-fluid" style="padding: 0;">
         <header style="height: 153px;"></header>
         <main style="height: 60vh;">
-            
+
         </main>
     </div>
 </body>
