@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #myChart {
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function fn_random_color() {
+            let rgb1 = Math.floor(Math.random() * (255 + 1));
+            let rgb2 = Math.floor(Math.random() * (255 + 1));
+            let rgb3 = Math.floor(Math.random() * (255 + 1));
+            let str = 'rgba(' + rgb1 + ',' + rgb2 + ',' + rgb3 + ',0.4';
+            return str;
+        }
+
+        const ctx = document.getElementById('myChart');
+
+        let labes_list = [];
+        let krw_list = [];
+        let jpy_list = [];
+
+        let config = {
+            type: 'line',
+            data: {
+                labels: labes_list,
+                datasets: [
+                    { label: 'KRW', data: krw_list }, { label: 'JPY', data: jpy_list }]
+            },
+            options: {
+                Elements: {
+                    line: {
+                        tension: 10 // 수치가 크면 좀더 부드럽게 그려줌
+                    }
+                }
+            }
+        }
+
+        let myChart = new Chart(ctx, config);
+
+        let world_money;
+
+        function get_data() {
+            $.getJSON('./data/2024.json', function (data) {
+                console.log("getJSON=======================================");
+                world_money = data['quotes']
+            });
+        }
+
+        get_data();
+
+        function fn_change() {
+            console.log(world_money);
+            let date_len = Object.keys(world_money).length;
+            let date = [];
+
+            let krw = [];
+            let jpy = [];
+        
+            for(let i = 0; i < date_len; i++){
+                date[i] = Object.keys(world_money)[i];
+                krw[i] = Object.values(world_money)[i]['USDKRW'];
+                jpy[i] = Object.values(world_money)[i]['USDJPY'];
+            }
+            console.log(date);
+            console.log(krw);
+            console.log(jpy);
+
+            config.data.labels = date;
+
+            config.data.datasets[0].data = krw;
+            config.data.datasets[1].data = jpy;
+
+            myChart.update();
+        }
+    </script>
+
+    <button id="btn" onclick="fn_change()">변경!!</button>
+</body>
+
+</html>

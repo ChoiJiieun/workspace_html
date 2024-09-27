@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #myChart {
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        function fn_random_color() {
+            let rgb1 = Math.floor(Math.random() * (255 + 1));
+            let rgb2 = Math.floor(Math.random() * (255 + 1));
+            let rgb3 = Math.floor(Math.random() * (255 + 1));
+            let str = 'rgba(' + rgb1 + ',' + rgb2 + ',' + rgb3 + ',0.4)';
+            return str;
+        }
+
+        const ctx = document.getElementById('myChart');
+
+        let configs = {
+            type: 'bar',
+            data: {
+                labels: ['짱구', '맹구', '수지'],
+                datasets: [{
+                    label: 'Python',
+                    data: [100, 80, 90],
+                    backgroundColor: [
+                        // 'rgba(255, 99, 132, 0.2)',
+                        // 'rgba(255, 159, 64, 0.2)',
+                        // 'rgba(255, 205, 86, 0.2)'
+                        fn_random_color()
+                    ],
+                    // borderColor: [
+                    //     'rgb(255, 99, 132)',
+                    //     'rgb(255, 159, 64)',
+                    //     'rgb(255, 205, 86)'
+                    // ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Java',
+                    data: [65, 40, 85],
+                    backgroundColor: [
+                        // 'rgba(75, 192, 192, 0.2)',
+                        // 'rgba(54, 162, 235, 0.2)',
+                        // 'rgba(153, 102, 255, 0.2)'
+                        fn_random_color()
+                    ],
+                    // borderColor: [
+                    //     'rgb(255, 99, 132)',
+                    //     'rgb(255, 159, 64)',
+                    //     'rgb(255, 205, 86)'
+                    // ],
+                    borderWidth: 1
+                },
+                {
+                    label: 'Spring',
+                    data: [60, 70, 90],
+                    backgroundColor: [
+                        // 'rgba(75, 192, 192, 0.2)',
+                        // 'rgba(54, 162, 235, 0.2)',
+                        // 'rgba(153, 102, 255, 0.2)'
+                        fn_random_color()
+                    ],
+                    // borderColor: [
+                    //     'rgb(255, 99, 132)',
+                    //     'rgb(255, 159, 64)',
+                    //     'rgb(255, 205, 86)'
+                    // ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+
+        let myChart = new Chart(ctx, configs);
+        
+        function fn_change() {
+            console.log(configs);
+            color = fn_random_color();
+            num = Math.floor(Math.random() * (100 + 1));
+            configs.data.datasets[0].backgroundColor = [color, color, color];
+            configs.data.datasets[0].data = [num, num, num];
+            myChart.update();
+        }
+    </script>
+
+
+    <button id="btn" onclick="fn_change()">변경</button>
+
+</body>
+
+</html>
