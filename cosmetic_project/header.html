@@ -1,28 +1,57 @@
-<nav class="navbar border-bottom py-4">
-    <div class="container-fluid justify-content-center" style="margin-left: 50px; margin-right: 60px;">
-        <img src="img/로고.png" style="width: 187px; height: 51px">
-        <form class="mx-auto" role="search">
-            <input class="form-control rounded-pill" type="text" placeholder="검색어를 입력해주세요" aria-label="Search"
-                id="search-input" style="font-family: 'NanumSquare'; height: 58px; width: 580px;">
-        </form>
-        <div id="login-div" class="text-end" style="margin-right: 25px;">
-            <a href="#">
-                <div class="login-box" style="display: inline;">
-                    <img id="login_btn" src="./img/login.png" alt="login" data-bs-toggle="modal" data-bs-target="#exampleModal" width="30" height="30" style="margin-right: 20px;">
-                </div>
-                <div class="login-tool" style="font-family: 'NanumSquare'; font-size: 14px;">로그인</div>
-            </a>
+<div id="header_div" style="position: relative;">
+    <nav class="navbar border-bottom py-4">
+        <div class="container-fluid justify-content-center" style="margin-left: 50px; margin-right: 60px;">
+            <img src="img/로고.png" style="width: 187px; height: 51px">
+            <form class="mx-auto" role="search">
+                <input class="form-control rounded-pill" type="text" placeholder="검색어를 입력해주세요" aria-label="Search"
+                    id="search-input" style="font-family: 'NanumSquare'; height: 58px; width: 580px;">
+            </form>
+            <div id="login-div" class="text-end" style="margin-right: 25px;">
+                <a href="#">
+                    <div class="login-box" style="display: inline;">
+                        <img id="login_btn" src="./img/login.png" alt="login" data-bs-toggle="modal" data-bs-target="#exampleModal" width="30" height="30" style="margin-right: 20px;">
+                    </div>
+                    <div class="login-tool" style="font-family: 'NanumSquare'; font-size: 14px;">로그인</div>
+                </a>
+            </div>
+            <div id="mypage-div" class="text-end" style="margin-right: 25px;">
+                <a href="mypage.html">
+                    <div class="mypage-box" style="display: inline;">
+                        <img id="mypage_btn" src="./img/mypage.png" alt="mypage" width="30" height="30">
+                    </div>
+                    <div class="mypage-tool" style="font-family: 'NanumSquare'; font-size: 14px;">마이페이지</div>
+                </a>
+            </div>
         </div>
-        <div id="mypage-div" class="text-end" style="margin-right: 25px;">
-            <a href="#">
-                <div class="mypage-box" style="display: inline;">
-                    <img id="mypage_btn" src="./img/mypage.png" alt="mypage" width="30" height="30">
-                </div>
-                <div class="mypage-tool" style="font-family: 'NanumSquare'; font-size: 14px;">마이페이지</div>
-            </a>
+    </nav>
+    
+    <nav id="bottom_nav" class="navbar border-bottom">
+        <div style="margin-left: 15%;">
+            <ul class="nav col-12 col-md-auto justify-content-center mb-md-0">
+                <li class="nav-item">
+                    <button id="categori" class="nav-link px-4 link-secondary"
+                        style="font-size: 20px; color: #000000 !important; border-left: 1px solid #D9D9D9 !important; border-right: 1px solid #D9D9D9 !important; font-family: 'NanumSquare';">
+                        <!-- <img src="img/etc.png" width="23px" height="15px" style="margin-right: 5px; margin-bottom: 5px;"> -->
+                        ☰&nbsp;&nbsp;&nbsp;&nbsp;카테고리
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button id="btn-home" class="nav-link link-secondary px-4"
+                        style="font-size: 20px; display: inline; font-family: 'NanumSquare';">홈</button>
+                </li>
+                <li class="nav-item">
+                    <button id="btn-rank" class="nav-link px-4 link-secondary"
+                        style="font-size: 20px;  display: inline; font-family: 'NanumSquare';">랭킹</button>
+                </li>
+                <li class="nav-item">
+                    <button id="btn-notice" class="nav-link px-4 link-secondary"
+                        style="font-size: 20px; display: inline; font-family: 'NanumSquare';">커뮤니티</button>
+                </li>
+            </ul>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
+
 
 <!-- 로그인 모달 -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -48,8 +77,8 @@
                     </div>
 
                     <div style="margin-top: 12px; padding: 0; height: min-content; margin-bottom: 25px;">
-                        <input type="checkbox" style="accent-color: #3D3D3D;">
-                        <label style="font-size: 14px;">로그인 상태 유지</label>
+                        <input id="login_save" type="checkbox" style="accent-color: #3D3D3D;">
+                        <label for="login_save" style="font-size: 14px;">로그인 상태 유지</label>
                     </div>
 
                     <button id="login_btn"
@@ -57,7 +86,7 @@
                     <button type="button" id="register_btn" onClick="location.href='register.html'"
                         style="width: 100%; height: 38px; border: none; background-color: #3D3D3D; color: white; font-size: 16px;">회원가입</button>
                 </form>
-                <hr style="border: 1px solid #D9D9D9">
+                <hr style="border: 1px solid #cacaca; margin-top: 20px;">
                 <div style="text-align: center;">
                     <img src="img/kakao.png" style="width: 45px;">
                     <label style="font-size: 14px;">카카오 로그인</label>
@@ -66,29 +95,3 @@
         </div>
     </div>
 </div>
-
-<nav class="navbar border-bottom">
-    <div class="container">
-        <ul class="nav col-12 col-md-auto justify-content-center mb-md-0">
-            <li class="nav-item">
-                <button id="categori" class="nav-link px-4 link-secondary"
-                    style="font-size: 20px; color: #000000 !important; border-left: 1px solid #D9D9D9 !important; border-right: 1px solid #D9D9D9 !important; font-family: 'NanumSquare';">
-                    <!-- <img src="img/etc.png" width="23px" height="15px" style="margin-right: 5px; margin-bottom: 5px;"> -->
-                    ☰&nbsp;&nbsp;&nbsp;&nbsp;카테고리
-                </button>
-            </li>
-            <li class="nav-item">
-                <button id="btn-home" class="nav-link link-secondary px-4"
-                    style="font-size: 20px; color: #000000 !important; display: inline; font-family: 'NanumSquare';">홈</button>
-            </li>
-            <li class="nav-item">
-                <button id="btn-rank" class="nav-link px-4 link-secondary"
-                    style="font-size: 20px; color: #000000 !important; display: inline; font-family: 'NanumSquare';">랭킹</button>
-            </li>
-            <li class="nav-item">
-                <button id="btn-notice" class="nav-link px-4 link-secondary"
-                    style="font-size: 20px; color: #000000 !important; display: inline; font-family: 'NanumSquare';">커뮤니티</button>
-            </li>
-        </ul>
-    </div>
-</nav>

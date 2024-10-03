@@ -43,51 +43,40 @@
                     href: 'css/header_style.css'
                 }).appendTo('head');
 
-                function white_font(obj) {
-                    $(obj).get(0).style.setProperty('color', 'white', 'important');
-                }
+                // function white_font(obj) {
+                //     $(obj).get(0).style.setProperty('color', 'white', 'important');
+                // }
 
-                function black_font(obj) {
-                    $(obj).get(0).style.setProperty('color', 'black', 'important');
-                    console.log("검정글자");
-                }
+                // function black_font(obj) {
+                //     $(obj).get(0).style.setProperty('color', 'black', 'important');
+                //     console.log("검정글자");
+                // }
 
-                function clearActiveButtons() {
-                    // 모든 버튼에서 'button-active' 클래스를 제거하고 글자 색을 검정색으로 변경
-                    $(".nav-link").each(function () {
-                        $(this).removeClass('button-active');
-                        // 변수.classList.remove("button-active")
-                        black_font(this);
-                    });
-                }
+                // function clearActiveButtons() {
+                //     // 모든 버튼에서 'button-active' 클래스를 제거하고 글자 색을 검정색으로 변경
+                //     $(".nav-link").each(function () {
+                //         $(this).removeClass('button-active');
+                //         // 변수.classList.remove("button-active")
+                //         black_font(this);
+                //     });
+                // }
 
                 // 클릭 이벤트 리스너 추가
                 $("#btn-home").click(function () {
-                    clearActiveButtons(this);
-                    $(this).addClass('button-active');
-                    // 변수.classList.add("button-active")
-                    white_font(this);
+                    location.href = 'home.html'
                 });
 
                 $("#btn-rank").click(function () {
-                    clearActiveButtons(this);
-                    $(this).addClass('button-active');
-                    white_font(this);
+                    location.href = 'rank.html';
                 });
 
                 $("#btn-notice").click(function () {
-                    clearActiveButtons(this);
-                    $(this).addClass('button-active');
-                    white_font(this);
+                    location.href = 'notice.html';
                 });
 
                 $("#categori").click(function () {
                     $('#categori_zone').toggle();
                     $("main").toggle();
-                    clearActiveButtons(this);
-                    $(this).addClass('button-active');
-                    white_font(this);
-                    $("#menu-content").toggle();
                 });
 
             });
@@ -155,51 +144,6 @@
                 <div style="margin-left: 10px; margin-bottom: 50px;">
                     <label class="d-block" style="font-weight: bold; margin-bottom: 10px;">생년월일</label>
                     <input type="date" style="height: 40px; padding-left: 10px;">
-                    <!-- <div class="d-flex">
-                        <div style="margin-right: 5px;">
-                            <select name="연도" id="year" style="width: 110px; height: 30px;">
-                                <option value="year">연도</option>
-                                <option value="2002">2002</option>
-                                <option value="2003">2003</option>
-                                <option value="2004">2004</option>
-                                <option value="2005">2005</option>
-                            </select>
-                        </div>
-                        <div style="margin-right: 5px;">
-                            <select name="month" id="month" style="width: 110px; height: 30px;">
-                                <option value="month">월</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>
-                        <div style="margin-right: 5px;">
-                            <select name="day" id="day" style="width: 110px; height: 30px;">
-                                <option value="day">일</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>
-                    </div> -->
                 </div>
                 <div style="margin-bottom: 50px;">
                     <button
