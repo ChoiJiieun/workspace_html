@@ -1,6 +1,9 @@
 #menu-content {
     position: absolute;
-    top: 449px;
+    /* 노트북 기준 */
+    /* top: 449px; */
+    /* 데스크탑 기준 */
+    top: 508px;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
