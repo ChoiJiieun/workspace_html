@@ -35,6 +35,11 @@ a, button {
     padding: 0;
 }
 
+ul.nav > .nav-item{
+    margin: 0;
+    padding: 0;
+}
+
 #login-div {
     position: relative;
     display: inline-block;
@@ -55,11 +60,6 @@ a, button {
     color: white;
     text-align: center;
     display: none;
-}
-
-ul.nav > .nav-item{
-    margin: 0;
-    padding: 0;
 }
 
 .mypage-tool {

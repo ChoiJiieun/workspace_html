@@ -22,18 +22,18 @@
             color: white !important;
         }
 
-        /* #btn-rank {
-            background-color: #3D3D3D !important;
-            color: white !important;
+        .btn-primary {
+            --bs-btn-bg: #3D3D3D;
+            --bs-btn-hover-color: white;
+            --bs-btn-hover-bg: #545454;
+            --bs-btn-border-color: none;
+            --bs-btn-hover-border-color: none;
+            --bs-btn-focus-shadow-rgb: none;
+            --bs-btn-active-color: #545454;
+            --bs-btn-active-bg: #3D3D3D;
+            --bs-btn-active-border-color: none;
+            height: 40px;
         }
-        #btn-home {
-            background-color: #ffffff !important;
-            color: #000000 !important;
-        }
-        #btn-notice {
-            background-color: #ffffff !important;
-            color: #000000 !important;
-        } */
 
         /* 이메일 입력 필드에 포커스가 있을 때 테두리 색상 변경 */
         input:focus {
@@ -48,6 +48,27 @@
             object-fit: cover;
             border-radius: 50%;
         }
+        /* .accordion {
+            --accordion-btn-focus-box-shadow: none;
+            --accordion-active-color: none;
+            --accordion-active-bg: none;
+            --#{$accordion-item}accordion-active-color: #{$accordion-button-active-color};
+            --#{$accordion-item}accordion-active-bg: #{$accordion-button-active-bg};
+        } */
+
+        #categori_acd {
+            --bs-accordion-active-color: #000000;  /* 활성화된 버튼의 텍스트 색상 */
+            /* --#{$prefix}accordion-active-color: #{$accordion-button-active-color}; */
+            --bs-accordion-active-bg: #ffffff;     /* 활성화된 버튼의 배경색 */
+            --bs-accordion-btn-focus-box-shadow: none;
+            --bs-accordion-border-color: none;
+        }
+
+        #categori_acd .accordion-button:not(.collapsed) {
+            color: var(--bs-accordion-active-color);  /* 텍스트 색상 */
+            background-color: var(--bs-accordion-active-bg);  /* 배경색 */
+        }
+
     </style>
     <script>
         $(document).ready(function () {
@@ -106,11 +127,11 @@
                 let left_position = $("#btn-home").position().left;
                 // alert(left_position);
 
-                $("#choose_div").css({"margin-right": left_position, "margin-left": left_position});
+                $("#choose_div").css({ "margin-right": left_position, "margin-left": left_position });
 
             });
 
-            $('#categori_zone').load('categori_menu.html', function() {
+            $('#categori_zone').load('categori_menu.html', function () {
                 $('<link>', {
                     rel: 'stylesheet',
                     type: 'text/css',
@@ -147,12 +168,9 @@
         </div>
         <div style="border-bottom: 1px solid #D9D9D9;">
             <div class="container d-flex justify-content-center" style="height: 47px;">
-                <button id="categori" class="nav-link link-secondary"
-                    style="width: 11%; font-size: 20px;">건성</button>
-                <button id="btn-home" class="nav-link link-secondary"
-                    style="width: 11%; font-size: 20px;">지성</button>
-                <button id="btn-rank" class="nav-link link-secondary"
-                    style="width: 11%; font-size: 20px;">중성</button>
+                <button id="categori" class="nav-link link-secondary" style="width: 11%; font-size: 20px;">건성</button>
+                <button id="btn-home" class="nav-link link-secondary" style="width: 11%; font-size: 20px;">지성</button>
+                <button id="btn-rank" class="nav-link link-secondary" style="width: 11%; font-size: 20px;">중성</button>
                 <button id="btn-notice" class="nav-link link-secondary"
                     style="width: 11%; font-size: 20px;">복합성</button>
                 <button id="btn-notice" class="nav-link link-secondary"
@@ -161,6 +179,151 @@
                     style="width: 11%; font-size: 20px;">여드름</button>
                 <button id="btn-notice" class="nav-link link-secondary"
                     style="width: 11%; font-size: 20px;">아토피</button>
+            </div>
+        </div>
+        <div style="width: 50%; margin: 0 auto;">
+            <div style="margin-top: 20px;">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categori_modal">
+                    카테고리 전체&nbsp;&nbsp;&nbsp;▾</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="categori_modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">카테고리 전체</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="categori_acd" class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapseTwo">
+                                            스킨케어
+                                        </button>
+                                      </h2>
+                                      <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                          <ul>전체</ul>
+                                          <ul>스킨/토너</ul>
+                                          <ul>로션/에멀젼</ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapseThree">
+                                          클렌징/필링
+                                        </button>
+                                      </h2>
+                                      <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul>클렌징 폼</ul>
+                                            <ul>클렌징 워터</ul>
+                                            <ul>클렌징 젤</ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapseThree">
+                                          마스크/팩
+                                        </button>
+                                      </h2>
+                                      <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul>시트마스크</ul>
+                                            <ul>부분마스크/팩</ul>
+                                            <ul>워시오프 팩</ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapseThree">
+                                          선케어
+                                        </button>
+                                      </h2>
+                                      <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul>선크림/로션</ul>
+                                            <ul>선스프레이</ul>
+                                            <ul>선케어 기타</ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapseThree">
+                                          바디
+                                        </button>
+                                      </h2>
+                                      <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul>바디워시</ul>
+                                            <ul>바디로션</ul>
+                                            <ul>바디크림/젤</ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" style="width: 80px;">적용</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center"
+                style="margin-top: 30px; box-shadow: 5px 5px 20px #D9D9D9; border-radius: 1cm; padding: 20px;">
+                <div class="d-flex flex-column justify-content-center">
+                    <img src="./img/rank1.png" style="width: 55px; height: 55px;">
+                </div>
+                <img src="./cosmetic_img/달바.png" style="width: 120px; height: 120px;">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="d-flex" style="margin-bottom: 6px;">
+                        <span style="color: #A6A6A6; margin-right: 6px; font-size: 20px;">달바</span>
+                        <span style="font-size: 20px;">워터풀 선크림[SPF50+/PA++++]</span>
+                    </div>
+                    <div class="d-flex">
+                        <img src="./img/star_full.png" style="width: 25px; height: 25px;">
+                        <div class="justify-content-center" style="margin-left: 5px;">
+                            <span style="font-size: 17px;">4.59</span>
+                            <span style="color: #A6A6A6; font-size: 17px;">(3,610)</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 60px;">
+                    <div class="d-flex">
+                        <div class="align-self-center pt-2">
+                            <span style="font-size: 30px; color: #61A1FF; margin-right: 10px;">&#9786;</span>
+                        </div>
+                        <div class="justify-content-center align-self-center">
+                            <span style="font-size: 20px;">좋았던 점</span>
+                        </div>
+                    </div>
+                    <div class="d-grid" style="margin-top: 5px;">
+                        <span class="text-center" style="font-size: 20px;">흡수가 잘 돼요</span>
+                        <span class="text-center" style="font-size: 20px;">보습이 잘 돼요</span>
+                    </div>
+                </div>
+                <div style="margin-left: 60px;">
+                    <div class="d-flex">
+                        <div class="align-self-center pt-2">
+                            <span style="font-size: 30px; color: #7F7F7F; margin-right: 10px;">&#9785;</span>
+                        </div>
+                        <div class="justify-content-center align-self-center">
+                            <span style="font-size: 20px;">좋았던 점</span>
+                        </div>
+                    </div>
+                    <div class="d-grid" style="margin-top: 5px;">
+                        <span class="text-center" style="font-size: 20px;">유분이 있어요</span>
+                        <span class="text-center" style="font-size: 20px;">보정이 안 돼요</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
