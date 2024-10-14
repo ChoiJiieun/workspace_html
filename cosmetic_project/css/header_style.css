@@ -1,3 +1,7 @@
+* {
+    font-family: 'NanumSquare';
+}
+
 #search-input {
     width: 700px;
     height: 70px;
@@ -110,3 +114,22 @@ ul.nav > .nav-item{
 .text-end:hover .login-tool{
     display: block;
 }
+
+.btn_active {
+    background-color: #3D3D3D !important;
+    color: white !important;
+}
+
+.a_tag {
+    color: #6C757D;
+    text-decoration: none;
+}
+
+.a_tag_click {
+    color: white;
+    text-decoration: none;
+}
+
+/* a:focus {
+    color: white;
+} */

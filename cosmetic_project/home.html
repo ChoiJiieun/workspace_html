@@ -17,10 +17,10 @@
             font-family: 'NanumSquare';
         }
         
-        .btn_active {
+        /* .btn_active {
             background-color: #3D3D3D !important;
             color: white !important;
-        }
+        } */
 
         /* 이메일 입력 필드에 포커스가 있을 때 테두리 색상 변경 */
         input:focus {
@@ -46,35 +46,8 @@
                     href: 'css/header_style.css'
                 }).appendTo('head');
 
-                // function back_white(obj) {
-                //     $(obj).get(0).style.setProperty('background-color', 'white', 'important');
-                // }
-
-                // function white_font(obj) {
-                //     $(obj).get(0).style.setProperty('color', 'white', 'important');
-                // }
-
-                // function black_font(obj) {
-                //     $(obj).get(0).style.setProperty('color', 'black', 'important');
-                //     console.log("검정글자");
-                // }
-
-                // function clearActiveButtons() {
-                //     // 모든 버튼에서 'button-active' 클래스를 제거하고 글자 색을 검정색으로 변경
-                //     $(".nav-link").each(function () {
-                //         $(this).removeClass('button-active');
-                //         back_white(this);   
-                //         black_font(this);
-                //     });
-                // }
-
-                // function clickActiveButtons() {
-                //     $(".nav-link").each(function() {
-                        
-                //     });
-                // }
-
                 $("#btn-home").addClass('btn_active');
+                $("#home_a_tag").addClass('a_tag_click');
 
                 $("#btn-rank").click(function () {
                     location.href = 'rank.html';
@@ -88,10 +61,6 @@
                     $('#categori_zone').toggle();
                     $("main").toggle();
                 });
-
-                // let left_position = $("#bottom_nav").position().left;
-                // let top_position = $("#bottom_nav").position().top;  // 106
-                // alert(left_position + "  " + top_position);
             });
 
             $('#categori_zone').load('categori_menu.html', function() {
@@ -101,24 +70,8 @@
                     href: 'css/categori_menu.css'
                 }).appendTo('main');
 
-                
-                // let categori_height = $("#header_div").height();
-                // let body_height = $(window).height();
-                // let cate_height = body_height/2;
-                // alert(cate_height + "  " + categori_height);
-
-                // // function height_change(obj) {
-                // //     $(obj).get(0).style.setProperty('top', cate_height);
-                // // }
-
-                // $("#menu-content").css("top", categori_height);
-
 
             });
-
-            // $('main').load('register.html', function () {
-
-            // });
         });
     </script>
 </head>

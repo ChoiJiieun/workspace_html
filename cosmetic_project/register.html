@@ -12,14 +12,6 @@
         crossorigin="anonymous"></script>
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <style>
-        * {
-            font-family: 'NanumSquare';
-        }
-
-        .button-active {
-            background-color: #3D3D3D !important;
-        }
-
         /* input에 포커스가 있을 때 테두리 색상 변경 */
         input:focus {
             border-color: #3D3D3D !important;
@@ -42,24 +34,6 @@
                     type: 'text/css',
                     href: 'css/header_style.css'
                 }).appendTo('head');
-
-                // function white_font(obj) {
-                //     $(obj).get(0).style.setProperty('color', 'white', 'important');
-                // }
-
-                // function black_font(obj) {
-                //     $(obj).get(0).style.setProperty('color', 'black', 'important');
-                //     console.log("검정글자");
-                // }
-
-                // function clearActiveButtons() {
-                //     // 모든 버튼에서 'button-active' 클래스를 제거하고 글자 색을 검정색으로 변경
-                //     $(".nav-link").each(function () {
-                //         $(this).removeClass('button-active');
-                //         // 변수.classList.remove("button-active")
-                //         black_font(this);
-                //     });
-                // }
 
                 // 클릭 이벤트 리스너 추가
                 $("#btn-home").click(function () {
