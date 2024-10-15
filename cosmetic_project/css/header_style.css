@@ -56,8 +56,9 @@ ul.nav > .nav-item{
 
 .login-tool {
     position: absolute;
-    left: -14px;
+    left: -20px;
     top: 45px;
+    width: 75px;
     background: #3D3D3D;
     padding: 10px;
     border-radius: 5px;
@@ -84,7 +85,7 @@ ul.nav > .nav-item{
     content: '';
     position: absolute;
     top: -7px;
-    left: 22px;
+    left: 28px;
     width: 0px;
     height: 0px;
     border-top: 8px solid none;
