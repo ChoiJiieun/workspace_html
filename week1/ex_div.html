@@ -4,74 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <style>
-        html { overflow-y:scroll; }
+        * {
+            font-family: 'NanumSquare';
+        }
+
+        .rating-bar {
+            width: 300px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .rating-row span {
+            width: 20px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .bar-container {
+            width: 200px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            margin-right: 10px;
+            position: relative;
+            height: 10px;
+        }
+
+        .bar {
+            height: 100%;
+            border-radius: 5px;
+        }
+
     </style>
 </head>
 <body>
-    <input type="date" style="height: 40px; padding-left: 10px;">
-    <div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+    <div class="rating-bar" style="margin: 20px;">
+        <div class="rating-row">
+            <span>5</span>
+            <div class="bar-container">
+                <div class="bar" style="width: 77%; background-color: #EFCE4A;"></div>
+            </div>
+            <span style="font-weight: bold;">142</span>
+        </div>
+        <div class="rating-row">
+            <span>4</span>
+            <div class="bar-container">
+                <div class="bar" style="width: 20%; background-color: #9e9e9e;"></div>
+            </div>
+            <span>37</span>
+        </div>
+        <div class="rating-row">
+            <span>3</span>
+            <div class="bar-container">
+                <div class="bar" style="width: 2%; background-color: #9e9e9e;"></div>
+            </div>
+            <span>5</span>
+        </div>
+        <div class="rating-row">
+            <span>2</span>
+            <div class="bar-container">
+                <div class="bar" style="width: 0%; background-color: #9e9e9e;"></div>
+            </div>
+            <span>0</span>
+        </div>
+        <div class="rating-row">
+            <span>1</span>
+            <div class="bar-container">
+                <div class="bar" style="width: 0%; background-color: #9e9e9e;"></div>
+            </div>
+            <span>0</span>
+        </div>
     </div>
+    
 </body>
 </html>
