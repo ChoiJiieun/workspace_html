@@ -23,12 +23,14 @@
             float: left;
             flex-direction: row; 
             justify-content: flex-start;
+            margin-bottom: 20px;
+            margin-top: 5px;
         }
 
         .star_rating .star {
-            width: 25px; 
-            height: 25px; 
-            margin-right: 10px;
+            width: 40px; 
+            height: 40px; 
+            /* margin-right: 10px; */
             display: inline-block; 
             background: url(img/noStar.png) no-repeat; 
             background-size: 100%; 
@@ -36,9 +38,9 @@
         }
 
         .star_rating .star.on {
-            width: 25px; 
-            height: 25px;
-            margin-right: 10px;
+            width: 40px; 
+            height: 40px;
+            /* margin-right: 10px; */
             display: inline-block; 
             background: url(img/fullStar.png) no-repeat;
             background-size: 100%; 
@@ -46,49 +48,78 @@
         }
 
         .star_box {
-            width: 400px;
+            width: 500px;
             box-sizing: border-box;
             display: inline-block;
-            margin: 15px 0;
+            margin-top: 10px;
             background: #F3F4F8;
             border: 0;
-            border-radius: 10px;
-            height: 100px;
+            border-radius: 5px;
+            height: 150px;
             resize: none;
             padding: 15px;
-            font-size: 13px;
+            font-size: 15px;
             font-family: sans-serif;
+        }
+
+        .star_box:focus {
+            outline-color: #9a9a9a;
         }
 
         .btn02 {
             display:block;
-            width: 400px;
+            width: 500px;
             font-weight: bold;
+            color: white;
             border: 0;
-            border-radius: 10px;
+            border-radius: 5px;
             max-height: 50px;
             padding: 15px 0;
             font-size: 1.1em;
             text-align: center;
-            background:bisque;
+            background:#3D3D3D;
+            margin-top: 25px;
         }
 
     </style>
 </head>
 <body>
-    <div style="margin: 20px;">
-        <h2>리뷰작성 폼</h2>
-        <div class ="star_rating">
-            <span class="star on" value="1"> </span>
-            <span class="star" value="2"> </span>
-            <span class="star" value="3"> </span>
-            <span class="star" value="4"> </span>
-            <span class="star" value="5"> </span>
-            <span id="ratingValue" style="font-size: 18px; margin-left: 10px;">1</span>
+    <div>
+        <!-- <h2>리뷰작성 폼</h2> -->
+        <div class="d-flex justify-content-center">
+            <div style="text-align: center;">
+                <span style="font-size: 20px;">평점을 선택해주세요</span>
+                <div>
+                    <div class ="star_rating">
+                        <span class="star on" value="1"> </span>
+                        <span class="star" value="2"> </span>
+                        <span class="star" value="3"> </span>
+                        <span class="star" value="4"> </span>
+                        <span class="star" value="5"> </span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <input id="ratingScore" type="hidden" name="ratingScore">
-        <textarea class="star_box" placeholder="리뷰 내용을 작성해주세요." ></textarea>
-        <input type="submit" class="btn02" value="리뷰 등록"/>
+        <div class="d-flex justify-content-center">
+            <div>
+                <input id="ratingScore" type="hidden" name="ratingScore">
+                <div>
+                    <span style="font-size: 20px;">좋았던 점</span>
+                    <span style="font-size: 15px;">(최소 20자 이상)</span>
+                    <div style="display: block;">
+                        <textarea class="star_box" placeholder="사용하신 제품의 자세한 리뷰를 남겨주세요" ></textarea>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <span style="font-size: 20px;">아쉬운 점</span>
+                    <span style="font-size: 15px;">(최소 20자 이상)</span>
+                    <div>
+                        <textarea class="star_box" placeholder="사용하신 제품의 자세한 리뷰를 남겨주세요" ></textarea>
+                    </div>
+                </div>
+                <input type="submit" class="btn02" value="리뷰 등록"/>
+            </div>
+        </div>
     </div>
 </body>
 <script>
@@ -96,12 +127,9 @@
         $(this).parent().children('span').removeClass('on');
         $(this).addClass('on').prevAll('span').addClass('on');
 
-        // 클릭한 별점 값을 가져와서 #ratingValue에 표시
         var rating = $(this).attr('value');
-        $('#ratingValue').text(rating);
-
-        $('#ratingInput').val(rating);
-
+        $("#ratingScore").val(rating)
+        console.log($("#ratingScore").val())
     });
 </script>
 </html>
