@@ -51,19 +51,36 @@
             width: 500px;
             box-sizing: border-box;
             display: inline-block;
-            margin-top: 10px;
             background: #F3F4F8;
+            padding: 15px;
             border: 0;
             border-radius: 5px;
             height: 150px;
             resize: none;
-            padding: 15px;
             font-size: 15px;
-            font-family: sans-serif;
+        }
+
+        .text_box {
+            width: 500px;
+            box-sizing: border-box;
+            border: 0;
+            resize: none;
+            font-size: 16px;
+        }
+
+        .text_box:focus {
+            outline: none;
+        }
+
+        #good_comment_div, #bad_comment_div {
+            border-radius: 5px;
+            margin-top: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         .star_box:focus {
-            outline-color: #9a9a9a;
+            outline: none;
         }
 
         .btn02 {
@@ -97,6 +114,8 @@
                         <span class="star" value="4"> </span>
                         <span class="star" value="5"> </span>
                     </div>
+                    <!-- <input id="ratingInput" type="number" min="1" max="5" placeholder="별점을 입력하세요 (1~5)" style="width: 50px;"> -->
+                    <input type="hidden" name="defaultScore" value="5">
                 </div>
             </div>
         </div>
@@ -106,30 +125,143 @@
                 <div>
                     <span style="font-size: 20px;">좋았던 점</span>
                     <span style="font-size: 15px;">(최소 20자 이상)</span>
-                    <div style="display: block;">
-                        <textarea class="star_box" placeholder="사용하신 제품의 자세한 리뷰를 남겨주세요" ></textarea>
+                    <div>
+                        <div id="good_comment_div" class="d-grid" style="background-color: #F3F4F8; width: 500px;">
+                            <textarea id="good_comment_text" class="star_box" placeholder="사용하신 제품의 자세한 리뷰를 남겨주세요" >작성작성</textarea>
+                            <div class="d-flex justify-content-between" style="margin-left: 15px; margin-right: 15px; margin-top: 10px;">
+                                <span style="font-size: 15px; color: #9a9a9a;">솔직한 리뷰를 작성해 주세요</span>
+                                <span id="good_count" style="font-size: 15px;">0/800</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div style="margin-top: 20px;">
                     <span style="font-size: 20px;">아쉬운 점</span>
                     <span style="font-size: 15px;">(최소 20자 이상)</span>
                     <div>
-                        <textarea class="star_box" placeholder="사용하신 제품의 자세한 리뷰를 남겨주세요" ></textarea>
+                        <div id="bad_comment_div" class="d-grid" style="background-color: #F3F4F8; width: 500px;">
+                            <textarea id="bad_comment_text" class="star_box" value="작성작성" placeholder="사용하신 제품의 자세한 리뷰를 남겨주세요">작성작성</textarea>
+                            <div class="d-flex justify-content-between" style="margin-left: 15px; margin-right: 15px; margin-top: 10px;">
+                                <span style="font-size: 15px; color: #9a9a9a;">솔직한 리뷰를 작성해 주세요</span>
+                                <span id="bad_count" style="font-size: 15px;">0/800</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <input type="submit" class="btn02" value="리뷰 등록"/>
+                <div style=" width: 300px; border: 1px solid black; text-align: center;">
+                    <h2>하이하이</h2>
+                </div>
+                <textarea class="text_box" readonly>하이하이루</textarea>
+                <span style="display: none;">버전</span>
             </div>
         </div>
     </div>
 </body>
 <script>
-    $('.star_rating > .star').click(function() {
-        $(this).parent().children('span').removeClass('on');
-        $(this).addClass('on').prevAll('span').addClass('on');
+    $(document).ready(function() {
+        // 초기 로드시 기본 별점 1개 표시
+        let defaultScore = parseInt($('input[name="defaultScore"]').val());
 
-        var rating = $(this).attr('value');
-        $("#ratingScore").val(rating)
-        console.log($("#ratingScore").val())
+        setDefaultRating(defaultScore);
+
+        // 1. 별을 클릭할 때 이벤트 처리
+        $('.star_rating > .star').click(function() {
+            // 모든 별의 'on' 클래스를 제거하고 클릭한 별과 그 이전 별들에 'on' 추가
+            $(this).parent().children('span').removeClass('on');
+            $(this).addClass('on').prevAll('span').addClass('on');
+            
+            // 선택한 별의 값(value)을 가져옴
+            var rating = $(this).attr('value');
+            
+            // 히든 필드와 input 필드에 값을 설정
+            $("#ratingScore").val(rating);
+            // $("#ratingInput").val(rating);
+            
+            console.log("Clicked star rating:", rating);
+        });
+
+        // 기본 별점 설정 함수
+        function setDefaultRating(defaultRating) {
+            // 별점 초기화 및 기본 별점 설정
+            $('.star_rating > .star').removeClass('on');
+            $('.star_rating > .star').each(function(index) {
+                if (index < defaultRating) {
+                    $(this).addClass('on');
+                }
+            });
+
+            // input과 히든 필드에 기본 값 설정
+            $("#ratingScore").val(defaultRating);
+            // $("#ratingInput").val(defaultRating);
+        }
+
+        $("#good_comment_text").focus(function() {
+            // #9a9a9a
+            $("#good_comment_div").css("outline", "2px solid #9a9a9a");
+        });
+
+        $("#good_comment_text").blur(function() {
+            // #9a9a9a
+            $("#good_comment_div").css("outline", "none");
+        });
+
+        $("#good_comment_text").keyup(function(e) {
+            let content = $(this).val();
+
+            // 글자수 세기
+            if (content.length == 0 || content == '') {
+                $("#good_count").text("0/800");
+            } else {
+                $("#good_count").text(content.length + "/800");
+            }
+
+            // 글자수 제한
+            if (content.length > 800) {
+                // 800자 넘어가면 타이핑 안되도록
+                $(this).val($(this).val().substring(0, 800));
+                // 800자 넘으면 알림창 뜨게
+                alert("800자까지 입력 가능합니다.")
+            }
+        });
+
+        $("#bad_comment_text").focus(function() {
+            // #9a9a9a
+            $("#bad_comment_div").css("outline", "2px solid #9a9a9a");
+        });
+
+        $("#bad_comment_text").blur(function() {
+            // #9a9a9a
+            $("#bad_comment_div").css("outline", "none");
+        });
+
+        $("#bad_comment_text").keyup(function(e) {
+            let content = $(this).val();
+
+            // 글자수 세기
+            if (content.length == 0 || content == '') {
+                $("#bad_count").text("0/800");
+            } else {
+                $("#bad_count").text(content.length + "/800");
+            }
+
+            // 글자수 제한
+            if (content.length > 800) {
+                // 800자 넘어가면 타이핑 안되도록
+                $(this).val($(this).val().substring(0, 800));
+                // 800자 넘으면 알림창 뜨게
+                alert("800자까지 입력 가능합니다.")
+            }
+        });
+
+        let good_content = $("#good_content_text").val();
+        $("#good_count").text(good_content.length + "/800");
+
+        let bad_content = $("#bad_content_text").val();
+        $("#bad_count").text(bad_content.length + "/800");
+
+
     });
+
 </script>
 </html>

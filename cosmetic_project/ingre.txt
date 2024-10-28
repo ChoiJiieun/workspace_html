@@ -1,50 +1,23 @@
-리모넨
-Liminene
-나무이끼추출물
-Evernia Furfuracea (Treemoss) Extract
-리날룰
-Linalool
-메틸2-옥티노에이트
-MethyI 2-Octynoate
-벤질벤조에이트
-Benzyl Benzoate
-벤질살리실레이트
-Benzyl Salicylate
-벤질신나메이트
-Benzyl Cinnamate
-벤질알코올
-Benzyl Alcohol
-부틸페닐메틸프로피오날
-Butylphenyl Methylpropional
-시트랄
-Citral
-시트로넬올
-Citronellol
-신나밀알코올
-Cinnamyl Alcohol
-신남알
-Cinnamal
-아니스알코올
-Anise Alcohol
-아밀신나밀알코올
-Amylcinnamyl Alcohol
-아밀신남알
-Amyl Cinnamal
-아이소유제놀
-Isoeugenol
-알파-아이소메틸아이오논
-Alpha-Isomethyl lonone
-유제놀
-Eugenol
-제라니올
-Geraniol
-참나무이끼추출물
-Evernia Prunastri (0akmoss) Extract
-쿠마린
-Coumarin
-파네솔
-Farnesol
-하이드록시시트로넬알
-Hydroxycitronellal
-헥실신남알
-Hexyl Cinnamal
+<tr>
+<div class='border-bottom py-4' style='padding: 10px;'>
+<div class='d-flex'>
+<c:if test='${re.profileImg == null}'>
+<img src='${pageContext.request.contextPath}/assets/img/게시판_프로필.png'>
+</c:if>
+<c:if test='${re.profileImg != null}'>
+<img src='${pageContext.request.contextPath}${re.profileImg}' id='profileImage'>
+</c:if>
+<div class='flex-column justify-content-center' style='margin-left: 15px;'>
+<div>
+<span style='font-size: 18px;'>${re.memNickname}</span>
+</div>
+<div>
+<span style='color: #7F7F7F;'>${re.replyDate}</span>
+</div>
+</div>
+</div>
+<div style='margin-left: 66px; margin-top: 15px;'>
+<span style='font-size: 18px;'>${re.replyContent}</span>
+</div>
+</div>
+</tr>
