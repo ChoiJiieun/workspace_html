@@ -1,23 +1,8 @@
-<tr>
-<div class='border-bottom py-4' style='padding: 10px;'>
-<div class='d-flex'>
-<c:if test='${re.profileImg == null}'>
-<img src='${pageContext.request.contextPath}/assets/img/게시판_프로필.png'>
-</c:if>
-<c:if test='${re.profileImg != null}'>
-<img src='${pageContext.request.contextPath}${re.profileImg}' id='profileImage'>
-</c:if>
-<div class='flex-column justify-content-center' style='margin-left: 15px;'>
-<div>
-<span style='font-size: 18px;'>${re.memNickname}</span>
-</div>
-<div>
-<span style='color: #7F7F7F;'>${re.replyDate}</span>
-</div>
-</div>
-</div>
-<div style='margin-left: 66px; margin-top: 15px;'>
-<span style='font-size: 18px;'>${re.replyContent}</span>
-</div>
-</div>
-</tr>
+|
+|
+|
+|
+|
+|
+|
+|
